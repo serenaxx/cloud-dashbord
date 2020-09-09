@@ -21,9 +21,9 @@ const Header = props => {
 
     return (
         <header className="g-header">
-            <Row className="pd-tp-1rem">
+            <Row className="pd-tp-dft">
                 <Col span={6}>
-                    <h2 className="clr-blue-1">cloud console</h2>
+                    <h2 className="clr-gray-1">cloud console</h2>
                 </Col>
                 <Col span={18}>
                     <Row>
@@ -37,7 +37,7 @@ const Header = props => {
                             </Select>
                         </Col>
                         <Col span={6} pull={2}>
-                            <h3>hi, user</h3>
+                            <h3>hi, serena</h3>
                         </Col>
                     </Row>
                 </Col>
