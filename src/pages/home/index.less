@@ -14,11 +14,15 @@
     }
     & .content {
         background: #ececec;
+        display: flex;
+        flex-wrap: wrap;
         & .card-row {
             display: flex;
         }
         & .ant-card {
             margin: 20px;
+            max-width: 800px;
+            min-width: 200px;
         }
     }
     & .ant-card-head-title {

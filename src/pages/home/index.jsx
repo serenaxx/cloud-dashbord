@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Tabs, Button, Row, Col, Card, Table, Descriptions } from "antd";
+import Draggable from 'react-draggable';
 import { EditOutlined } from "@ant-design/icons";
 import "./index.less";
 const { TabPane } = Tabs;
@@ -145,10 +146,28 @@ const dataMap = {
 
 const Index = () => {
   const [isedit, setIsedit] = useState(false);
+  const [activeDrags, setActiveDrags] = useState(0)
+  const [deltaPosition, setDeltaPosition] = useState({ x: 0, y: 0})
+  const [controlledPosition, setControlledPosition] = useState({x: -400, y: 200})
 
   const edit = () => {
     setIsedit(true);
   };
+
+  const handleStart = (e, data) => {
+    const num = activeDrags + 1
+    setActiveDrags(num)
+  }
+  const handleDrag = (e, ui) => {
+    setDeltaPosition({
+      x: deltaPosition.x + ui.deltaX,
+      y: deltaPosition.y + ui.deltaY,
+    })
+  }
+  const handleStop = () => {
+    const num = activeDrags - 1
+    setActiveDrags(num)
+  }
 
   return (
     <div className="page index">
@@ -166,7 +185,13 @@ const Index = () => {
             <div className="content">
               {list.map((item, index) => {
                 return (
-                  <Card key={index} title={item.alias ? item.alias : item.name} bordered={false}>
+                  <Draggable
+                    key={index}
+                    onStart={handleStart}
+                    onDrag={handleDrag}
+                    onStop={handleStop}
+                    >
+                    <Card key={index} title={item.alias ? item.alias : item.name} bordered={false}>
                     {dataMap[item.name] && dataMap[item.name].map((el, indx) => {
                       return (
                         <div className="card-row" key={indx}>
@@ -207,8 +232,9 @@ const Index = () => {
                         </div>
                       );
                     })}
-                  </Card>
-                );
+                    </Card>
+                  </Draggable>
+                )
               })}
             </div>
           </TabPane>
