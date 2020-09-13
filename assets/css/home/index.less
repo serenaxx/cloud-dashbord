@@ -1,5 +1,7 @@
+@import "../var";
 .index {
     & .ant-tabs {
+        display: block;
         & .ant-tabs-nav-wrap {
             margin-left: 10%;
         }
@@ -7,22 +9,37 @@
             background: #fff;
         }
     }
-    & .ant-btn {
+    & .btns {
         position: absolute;
         top: 88px;
         right: 10%;
+        & .btn-oper {
+            font-size: 16px;
+            margin-left: 20px;
+        }
     }
     & .content {
         background: #ececec;
-        display: flex;
-        flex-wrap: wrap;
+        position: relative;
+        display: block;
+        width: 100%;
         & .card-row {
             display: flex;
         }
         & .ant-card {
-            margin: 20px;
-            max-width: 800px;
-            min-width: 200px;
+            &.mini {
+                max-width: 180px;
+            }
+        }
+        & .react-grid-layout.no-resizable {
+            & .react-resizable-handle {
+                display: none;
+            }
+        }
+        & .btn-block {
+            background: @clr-gray-1;
+            margin: 10px;
+            float: left;
         }
     }
     & .ant-card-head-title {
@@ -30,9 +47,6 @@
     }
     & .card-item {
         width: 100%;
-    }
-    & .ant-tabs-top > .ant-tabs-nav {
-        margin: 0;
     }
     & .ant-card-bordered {
         border: 1px solid #e4d2ba;
@@ -47,5 +61,14 @@
         font-size: 16px;
         flex: unset;
         margin-left: 50px;
+    }
+    & .ant-tabs-content-holder {
+        width: 100%;
+        & .ant-tabs-content {
+            display: block;
+        }
+    }
+    & .ant-tabs-tabpane {
+        display: flex;
     }
 }

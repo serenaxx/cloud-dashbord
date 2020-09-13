@@ -4,6 +4,9 @@
  */
 import React from 'react';
 import { Divider } from 'antd';
+import {
+    withRouter,
+} from 'react-router-dom'
 import Header from '@src/components/header';
 
 const Layout = (props) => {
@@ -22,4 +25,4 @@ const Layout = (props) => {
   )
 }
 
-export default Layout
+export default withRouter(Layout)
