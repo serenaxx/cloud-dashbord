@@ -1,4 +1,5 @@
-This project is a demo of cloud admin dashbord. The widgets in the dashbord can be customized by the user.
+### A demo project of cloud admin dashbord. 
+#### The widgets in the dashbord can be customized by the user.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
